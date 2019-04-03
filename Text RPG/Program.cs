@@ -9,7 +9,7 @@ namespace Text_RPG
     class Program
     {
         static void Main(string[] args)
-        {
+        { 
             Console.WriteLine("Welcome to Text RPG");
 
         }
