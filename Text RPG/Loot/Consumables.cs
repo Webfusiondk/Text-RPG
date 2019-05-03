@@ -6,7 +6,11 @@ using System.Threading.Tasks;
 
 namespace Text_RPG
 {
-    class Combat
+    class Consumables : Loot
     {
+        public Consumables(string name, int plusHp) 
+            : base(name, plusHp)
+        {
+        }
     }
 }
