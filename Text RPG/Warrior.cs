@@ -26,8 +26,8 @@ namespace Text_RPG
         }
 
 
-        public Warrior(string name, int hp, int attack)
-            :base(name,hp,attack)
+        public Warrior(string name, int playerlevel, int hp, int attack)
+            :base(name,playerlevel,hp,attack)
         {
             Name = name;
             Hp = hp;
@@ -42,6 +42,29 @@ namespace Text_RPG
         {
             target.Hp -= Attack + 20;
             target.Hp -= Attack + 20;
+        }
+    }
+
+    class Bandit : Character
+    {
+        public Bandit(string name, int playerlevel, int hp, int attack) 
+            : base(name, playerlevel, hp, attack)
+        {
+
+        }
+        public void BackStab(Character target)
+        {
+            target.Hp -= Attack + 40;
+        }
+        public void SliceAndSlice(Character target)
+        {
+            target.Hp -= Attack + 10;
+            target.Hp -= Attack + 10;
+            target.Hp -= Attack + 10;
+        }
+        public void Kick(Character target)
+        {
+            target.Hp -= Attack + 30;
         }
     }
 }

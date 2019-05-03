@@ -10,8 +10,8 @@ namespace Text_RPG
     {
         public int numOfAttack;
 
-        public Enemy(string name, int hp, int attack)
-            : base(name, hp, attack)
+        public Enemy(string name, int playerlevel, int hp, int attack)
+            : base(name, playerlevel, hp, attack)
         {
         }
 
@@ -27,8 +27,8 @@ namespace Text_RPG
     class Demon : Enemy, ILoot
     {
 
-        public Demon(string name, int hp, int attack)
-            : base(name, hp, attack)
+        public Demon(string name, int playerlevel, int hp, int attack)
+            : base(name, playerlevel, hp, attack)
         {
             numOfAttack = 2;
         }
@@ -57,9 +57,12 @@ namespace Text_RPG
             throw new NotImplementedException();
         }
     }
+
+
     class BigRat : Enemy
     {
-        public BigRat(string name, int hp, int attack) : base(name, hp, attack)
+        public BigRat(string name, int playerlevel, int hp, int attack) 
+            : base(name, playerlevel, hp, attack)
         {
             numOfAttack = 2;
         }
@@ -74,7 +77,7 @@ namespace Text_RPG
             return "Bonk!";
         }
 
-        public string RatTurn(int choice, Character target)
+        public string BigRatTurn(int choice, Character target)
         {
             if (choice == 1)
             {
@@ -92,8 +95,8 @@ namespace Text_RPG
 
     class Rat : Enemy
     {
-        public Rat(string name, int hp, int attack) 
-            : base(name, hp, attack)
+        public Rat(string name, int playerlevel, int hp, int attack) 
+            : base(name, playerlevel, hp, attack)
         {
             numOfAttack = 3;
 
@@ -134,8 +137,8 @@ namespace Text_RPG
 
     class RatKing : Enemy
     {
-        public RatKing(string name, int hp, int attack)
-            : base(name, hp, attack)
+        public RatKing(string name, int playerlevel, int hp, int attack)
+            : base(name, playerlevel, hp, attack)
         {
             numOfAttack = 4;
         }
@@ -147,7 +150,7 @@ namespace Text_RPG
 
         public string Bite(Character target)
         {
-            target.Hp -= Attack + 20;
+            target.Hp -= Attack + 25;
             return "You will taste good!";
         }
 
@@ -163,25 +166,29 @@ namespace Text_RPG
             return "RatArmy ATTACK!";
         }
 
-        public void RatTurn(int choice, Character target)
+        public string RatKingTurn(int choice, Character target)
         {
-            switch (EnemyChoice())
+            if (choice == 1)
             {
-                case 1:
-                    Screem(target);
-                    break;
-                case 2:
-                    Bite(target);
-                    break;
-                case 3:
-                    RatMedic(this);
-                    break;
-                case 4:
-                    RatArmy(target);
-                    break;
-                default:
-                    break;
+                Screem(target);
+                return "Reeee";
             }
+            else if (choice == 2)
+            {
+                Bite(target);
+                return "You will taste good!";
+            }
+            else if (choice == 3)
+            {
+                RatMedic(Program.RatKing);
+                return "+ 20HP to RatKing";
+            }
+            else if (choice == 4)
+            {
+                RatArmy(target);
+                return "RatArmy ATTACK!";
+            }
+            return null;
         }
     }
 }

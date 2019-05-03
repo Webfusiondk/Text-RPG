@@ -8,11 +8,10 @@ namespace Text_RPG
 {
     class NPC : Character
     {
-        public NPC(string name, int hp, int attack) 
-            : base(name, hp, attack)
+        public NPC(string name, int playerlevel, int hp, int attack) 
+            : base(name, playerlevel, hp, attack)
         {
 
         }
-
     }
 }

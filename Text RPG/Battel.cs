@@ -52,13 +52,14 @@ namespace Text_RPG
             Console.Clear();
             Console.WriteLine("You will have to slay 10 demons..");
             Console.WriteLine("After evey fight you will get full hp.. But if you die you lose");
-            Console.WriteLine("Your enemys stats are \n" + Program.Demon1.PrintStats());
+            Console.WriteLine("Your enemys stats are \n");
             Console.ReadKey(true);
             DemonHunt(Program.war, Program.Demon1);
         }
 
         public static void BigRat(Warrior warrior, BigRat bigRat)
         {
+            Program.currenttarget = bigRat;
             while (bigRat.Hp > 0 && warrior.Hp > 0)
             {
                 PrintPlayerStats(bigRat, warrior);
@@ -66,17 +67,37 @@ namespace Text_RPG
                 Program.WarriorMenu();
                 if (bigRat.Hp > 0)
                 {
-                    Console.WriteLine(bigRat.RatTurn(bigRat.EnemyChoice(), warrior));
+                    Console.WriteLine(bigRat.BigRatTurn(bigRat.EnemyChoice(), warrior));
                     warrior.Dead();
                 }
             }
-            warrior.Hp = 100;
+            warrior.Hp = 120;
             Console.WriteLine("{0} was killed!", bigRat.Name);
+            Console.Clear();
+        }
+
+        public static void RatKing(Warrior warrior, RatKing ratking)
+        {
+            Program.currenttarget = ratking;
+            while (ratking.Hp > 0 && warrior.Hp > 0)
+            {
+                PrintPlayerStats(ratking, warrior);
+
+                Program.WarriorMenu();
+                if (ratking.Hp > 0)
+                {
+                    Console.WriteLine(ratking.RatKingTurn(ratking.EnemyChoice(), warrior));
+                    warrior.Dead();
+                }
+            }
+            warrior.Hp = 120;
+            Console.WriteLine("{0} was killed!", ratking.Name);
             Console.Clear();
         }
 
         public static void RatHunt(Warrior warrior, Rat rat)
         {
+            Program.currenttarget = rat;
             while (rat.Hp > 0 && warrior.Hp > 0)
             {
                 PrintPlayerStats(rat, warrior);
@@ -89,7 +110,7 @@ namespace Text_RPG
                 }
             }
             rat.Hp = 50;
-            warrior.Hp = 100;
+            warrior.Hp = 110;
             Console.WriteLine("{0} was killed!", rat.Name);
             Console.Clear();
         }
@@ -98,6 +119,7 @@ namespace Text_RPG
         {
             for (int i = 0; i < 10; i++)
             {
+                Console.WriteLine("Demon kills: " + i);
                 while (demon.Hp > 0 && warrior.Hp > 0)
                 {
                     PrintPlayerStats(demon, warrior);

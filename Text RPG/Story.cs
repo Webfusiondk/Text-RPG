@@ -49,6 +49,8 @@ namespace Text_RPG
             Console.WriteLine("Brilliant! i will reward you with an impressive item!");
             Console.WriteLine("But remeber if you die under combat you will have to start over...");
             Battel.DemonQuest();
+            Program.war.LevelUp();
+            StoryAct2Yes();
         }
 
         public void StoryAct2Yes()
@@ -58,7 +60,6 @@ namespace Text_RPG
             Console.WriteLine("I heard that the king got traped in the Sewers!");
             Console.WriteLine("It was somthing aboute giant rats came and took him!");
             Console.WriteLine("Pleas hurry down to the Sewers!");
-            Console.ReadKey(true);
             Console.WriteLine("Would you like to accept the quest to save the king?");
             userchoice = Console.ReadLine().ToLower();
             switch (userchoice)
@@ -69,7 +70,7 @@ namespace Text_RPG
                 case "no":
                     break;
                 default:
-                    Console.WriteLine("That is not a correct answer yes/no pleas.");
+                    Console.WriteLine("Type yes or no");
                     StoryAct2Yes();
                     break;
             }
@@ -87,9 +88,18 @@ namespace Text_RPG
             Console.WriteLine("Sould i just keep walking? How far is it!");
             Console.Clear();
             Battel.RatHunt(Program.war, Program.Rat);
+            Program.war.LevelUp();
             Console.WriteLine("What is that sound???");
             Console.WriteLine("Bum Bum Bum!");
             Battel.BigRat(Program.war, Program.BigRat);
+            Console.WriteLine("Phyyy that was a big rat!");
+            Console.WriteLine("I swear to god that im gonna rip the head off that king when i find him...");
+            Console.WriteLine("Reeeeee");
+            Console.WriteLine("What was that!!");
+            Battel.RatKing(Program.war, Program.RatKing);
+            Program.war.LevelUp();
+            Program.war.LevelUp();
+            Program.war.LevelUp();
         }
 
         public void StoryAct1No()
@@ -114,13 +124,15 @@ namespace Text_RPG
             }
             Console.Clear();
         }
-            public void BanditStoryAct1Yes()
-            {
 
-            }
-            public void BanditStoryAct1No()
-            {
 
-            }
+        public void BanditStoryAct1Yes()
+        {
+
+        }
+        public void BanditStoryAct1No()
+        {
+
+        }
     }
 }

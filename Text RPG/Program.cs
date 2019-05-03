@@ -11,37 +11,38 @@ namespace Text_RPG
 
         public static BigRat BigRat;
         public static Warrior war;
+        public static RatKing RatKing;
         public static Demon Demon1;
         public static Rat Rat;
         public static List<Armor> armor_list;
-        static Character currenttarget;
+        public static Character currenttarget;
         static void Main(string[] args)
         {
             armor_list = new List<Armor>();
             Story story = new Story();
-            BigRat = new BigRat("Big Beefy Rat", 70, 25);
-            Rat = new Rat("Rat", 50, 10);
-            Demon1 = new Demon("Demon", 100, 30);
+            BigRat = new BigRat("Big Beefy Rat", 5, 70, 25);
+            Rat = new Rat("Rat", 3, 50, 10);
+            RatKing = new RatKing("RatKing", 10, 180, 15);
+            Demon1 = new Demon("Demon", 1, 100, 30);
             currenttarget = Demon1;
             war = Create();
             story.StoryStart();
             Console.Clear();
             story.StoryAct1();
             Console.ReadKey();
-
         }
-
 
         static Warrior Create()
         {
             string name;
             int hp = 100;
             int attack = 10;
+            int playerlevel = 1;
 
             Console.WriteLine("Enter the name of your Warrior");
             Console.Write("Name: ");
             name = Console.ReadLine();
-            return new Warrior(name, hp, attack);
+            return new Warrior(name, playerlevel, hp, attack);
         }
 
         public void CreateArmor(string name, int plusHp)

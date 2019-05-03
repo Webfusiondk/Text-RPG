@@ -8,9 +8,21 @@ namespace Text_RPG
 {
     class Character
     {
+        int playerlevel;
         string name;
         int hp;
         int attack;
+        public int Playerlevel
+        {
+            get
+            {
+                return playerlevel;
+            }
+            set
+            {
+                playerlevel = value;
+            }
+        }
         public string Name
         {
             get
@@ -44,8 +56,9 @@ namespace Text_RPG
                 attack = value;
             }
         }
-        public Character(string name, int hp, int attack)
+        public Character(string name, int playerlevel, int hp, int attack)
         {
+            Playerlevel = playerlevel;
             Name = name;
             Hp = hp;
             Attack = attack;
@@ -53,19 +66,30 @@ namespace Text_RPG
 
         public string Dead()
         {
+            string dead = null;
             if (hp <= 0)
             {
-                return "Better luck next time!";
+                dead = "Better luck next time!";
+                System.Windows.Forms.Application.Restart();
             }
-            return null;
+            return dead;
         }
 
         public string PrintStats()
         {
             return
             "Name: " + Name + "\n" +
+            "Level: " + Playerlevel + "\n" +
             "Hp: " + Hp + "\n" +
-            "Attack: " + Attack;
+            "Attack: " + Attack + "\n";
+        }
+        public void LevelUp()
+        {
+            Console.WriteLine("Level Up!" + "\n" + "Attack +5" + "\n" + "Hp +10");
+
+            attack += 5;
+            hp += 10;
+            playerlevel += 1;
         }
 
         public void NormalAttack(Character target)
