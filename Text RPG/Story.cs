@@ -33,10 +33,12 @@ namespace Text_RPG
             switch (userchoice)
             {
                 case "yes":
+                    Console.Clear();
                     pro.PlayWar();
                     StoryAct1Yes();
                 break;
                 case "no":
+                    Console.Clear();
                     pro.PlayBan();
                     StoryAct1No();
                 break;
@@ -68,6 +70,7 @@ namespace Text_RPG
             switch (userchoice)
             {
                 case "yes":
+                    Console.Clear();
                     StorySewers();
                     break;
                 case "no":
@@ -114,9 +117,11 @@ namespace Text_RPG
             switch (userchoice)
             {
                 case "yes":
+                    Console.Clear();
                     BanditStoryAct1Yes();
                     break;
                 case "no":
+                    Console.Clear();
                     BanditStoryAct1No();
                     break;
                 default:
@@ -124,7 +129,6 @@ namespace Text_RPG
                     StoryAct1No();
                     break;
             }
-            Console.Clear();
         }
 
 
@@ -147,9 +151,11 @@ namespace Text_RPG
             switch (userchoice)
             {
                 case "yes":
+                    Console.Clear();
                     BanditStoryAct2Yes();
                     break;
                 case "no":
+                    Console.Clear();
                     BanditStoryAct2No();
                     break;
                 default:
@@ -181,9 +187,11 @@ namespace Text_RPG
             switch (userchoice)
             {
                 case "1":
+                    Console.Clear();
                     Battel.CastelSige(Program.ban, Program.CG);
                     break;
                 case "2":
+                    Console.Clear();
                     BanditSewer();
                     break;
                 default:

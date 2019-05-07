@@ -142,11 +142,12 @@ namespace Text_RPG
 
         public static void TownCharge(Bandit bandit, TownGuard townGuard)
         {
+            Program.currenttarget = townGuard;
                 while (townGuard.Hp > 0 && bandit.Hp > 0)
                 {
                     PrintPlayerStats(townGuard, bandit);
 
-                    Program.WarriorMenu();
+                    Program.BanditMenu();
                     if (townGuard.Hp > 0)
                     {
                         Console.WriteLine(townGuard.TownGuardTurn(townGuard.EnemyChoice(), bandit));
@@ -158,13 +159,14 @@ namespace Text_RPG
 
         public static void CastelSige(Bandit bandit, CastelGuard castelGuard)
         {
+            Program.currenttarget = castelGuard;
             for (int i = 0; i < 2; i++)
             {
                 while (castelGuard.Hp > 0 && bandit.Hp > 0)
                 {
                     PrintPlayerStats(castelGuard, bandit);
 
-                    Program.WarriorMenu();
+                    Program.BanditMenu();
                     if (castelGuard.Hp > 0)
                     {
                         Console.WriteLine(castelGuard.CastelGuardTurn(castelGuard.EnemyChoice(), bandit));
@@ -184,7 +186,7 @@ namespace Text_RPG
             {
                 PrintPlayerStats(bigRat, bandit);
 
-                Program.WarriorMenu();
+                Program.BanditMenu();
                 if (bigRat.Hp > 0)
                 {
                     Console.WriteLine(bigRat.BigRatTurn(bigRat.EnemyChoice(), bandit));
