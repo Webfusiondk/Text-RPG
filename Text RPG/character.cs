@@ -74,6 +74,7 @@ namespace Text_RPG
             {
                 dead = "Better luck next time!";
                 System.Windows.Forms.Application.Restart();
+                Environment.Exit(0);
             }
             return dead;
         }

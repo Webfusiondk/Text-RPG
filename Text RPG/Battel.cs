@@ -182,6 +182,7 @@ namespace Text_RPG
 
         public static void BanditvsBigRat(Bandit bandit, BigRat bigRat)
         {
+            Program.currenttarget = bigRat;
             while (bigRat.Hp > 0 && bandit.Hp > 0)
             {
                 PrintPlayerStats(bigRat, bandit);
