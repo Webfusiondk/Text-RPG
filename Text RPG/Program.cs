@@ -32,7 +32,6 @@ namespace Text_RPG
             RatKing = new RatKing("RatKing", 10, 180, 15);
             Demon1 = new Demon("Demon", 1, 100, 30);
             currenttarget = Demon1;
-            CreateAdventure();
             story.StoryStart();
             Console.Clear();
             story.StoryAct1();
@@ -53,7 +52,8 @@ namespace Text_RPG
             int hp = 100;
             int attack = 10;
             int playerlevel = 1;
-            return new Warrior(CreateAdventure(), playerlevel, hp, attack);
+            war = new Warrior(CreateAdventure(), playerlevel, hp, attack);
+            return war;
         }
         //change to bandit
         public Bandit PlayBan()
@@ -61,7 +61,9 @@ namespace Text_RPG
             int hp = 70;
             int attack = 15;
             int playerlevel = 1;
-            return new Bandit(CreateAdventure(), playerlevel, hp, attack);
+            
+            ban = new Bandit( CreateAdventure(), playerlevel, hp, attack );
+            return ban;
         }
 
         //Make armor to armor list

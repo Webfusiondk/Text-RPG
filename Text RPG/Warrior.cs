@@ -45,6 +45,7 @@ namespace Text_RPG
             target.Hp -= Attack + 20;
         }
     }
+
     //bandit Char
     class Bandit : Character
     {
@@ -67,6 +68,5 @@ namespace Text_RPG
         {
             target.Hp -= Attack + 30;
         }
-
     }
 }

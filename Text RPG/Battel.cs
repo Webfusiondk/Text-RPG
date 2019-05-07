@@ -153,6 +153,7 @@ namespace Text_RPG
                         bandit.Dead();
                     }
                 }
+            Console.Clear();
         }
 
         public static void CastelSige(Bandit bandit, CastelGuard castelGuard)
@@ -176,6 +177,7 @@ namespace Text_RPG
             }
 
         }
+
         public static void BanditvsBigRat(Bandit bandit, BigRat bigRat)
         {
             while (bigRat.Hp > 0 && bandit.Hp > 0)
@@ -189,6 +191,9 @@ namespace Text_RPG
                     bandit.Dead();
                 }
             }
+            bandit.Hp = 90;
+            bigRat.Hp = 70;
+            Console.Clear();
         }
 
     }

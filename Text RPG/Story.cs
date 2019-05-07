@@ -15,7 +15,7 @@ namespace Text_RPG
         {
             Console.WriteLine("Welcome to Text RPG");
             Console.ReadKey(true);
-            Console.WriteLine(Program.name + " i hope you are ready!");
+            Console.WriteLine("Adventure i hope you are ready!");
             Console.ReadKey(true);
             Console.WriteLine("You will encounter dangerous enemies and bosses!");
             Console.ReadKey(true);
@@ -27,7 +27,7 @@ namespace Text_RPG
 
         public void StoryAct1()
         {
-            Console.WriteLine(Program.name + " your first mission is to slaying 10 demons");
+            Console.WriteLine("Adventure your first mission is to slaying 10 demons");
             Console.WriteLine("Would you like to accept this quest?");
             userchoice = Console.ReadLine().ToLower();
             switch (userchoice)
@@ -139,7 +139,6 @@ namespace Text_RPG
             Console.WriteLine("(Start walking towards the town)");
             Console.WriteLine("...");
             Console.WriteLine("...");
-            Console.WriteLine("...");
             Console.WriteLine("Guard at the town gate: You are not welcome here!");
             Console.WriteLine("Guard: Turn around or get punished!");
             Console.WriteLine("(Sould i walk strigt in or find a diffrent path into the town)");
@@ -191,6 +190,7 @@ namespace Text_RPG
                     break;
             }
         }
+
         public void BanditSewer()
         {
             Console.WriteLine("That is that smell!");
@@ -198,7 +198,12 @@ namespace Text_RPG
             Console.WriteLine("(Starts walking...)");
             Console.WriteLine("(I can hear them talk above me)");
             Console.WriteLine("What is that! Its so big and furry!");
-
+            Battel.BanditvsBigRat(Program.ban, Program.BigRat);
+            Program.ban.LevelUp();
+            Program.ban.LevelUp();
+            Program.ban.LevelUp();
+            Console.WriteLine("What the fuck was that!");
+            Console.WriteLine("Why is there some kind of mutated rat down here!");
         }
         public void BanditStoryAct1No()
         {
