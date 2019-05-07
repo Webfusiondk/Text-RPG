@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace Text_RPG
 {
+    //Warrior char
     class Warrior : Character
     {
         public int numOfAttack;
@@ -44,7 +45,7 @@ namespace Text_RPG
             target.Hp -= Attack + 20;
         }
     }
-
+    //bandit Char
     class Bandit : Character
     {
         public Bandit(string name, int playerlevel, int hp, int attack) 

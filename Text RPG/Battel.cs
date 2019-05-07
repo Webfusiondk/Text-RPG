@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace Text_RPG
 {
+    //All battels of the game
     class Battel
     {
         private static int critChance = 16; // 1 in 16 attacks crit
@@ -131,11 +132,62 @@ namespace Text_RPG
                         warrior.Dead();
                     }
                 }
-                    demon.Hp = 100;
-                    warrior.Hp = 100;
-                    Console.WriteLine("{0} was killed!", demon.Name);
-                    Console.Clear();
+                demon.Hp = 100;
+                warrior.Hp = 100;
+                Console.WriteLine("{0} was killed!", demon.Name);
+                Console.Clear();
 
+            }
+        }
+
+        public static void TownCharge(Bandit bandit, TownGuard townGuard)
+        {
+                while (townGuard.Hp > 0 && bandit.Hp > 0)
+                {
+                    PrintPlayerStats(townGuard, bandit);
+
+                    Program.WarriorMenu();
+                    if (townGuard.Hp > 0)
+                    {
+                        Console.WriteLine(townGuard.TownGuardTurn(townGuard.EnemyChoice(), bandit));
+                        bandit.Dead();
+                    }
+                }
+        }
+
+        public static void CastelSige(Bandit bandit, CastelGuard castelGuard)
+        {
+            for (int i = 0; i < 2; i++)
+            {
+                while (castelGuard.Hp > 0 && bandit.Hp > 0)
+                {
+                    PrintPlayerStats(castelGuard, bandit);
+
+                    Program.WarriorMenu();
+                    if (castelGuard.Hp > 0)
+                    {
+                        Console.WriteLine(castelGuard.CastelGuardTurn(castelGuard.EnemyChoice(), bandit));
+                        bandit.Dead();
+                    }
+                }
+                castelGuard.Hp = 150;
+                bandit.Hp = 70;
+                Console.Clear();
+            }
+
+        }
+        public static void BanditvsBigRat(Bandit bandit, BigRat bigRat)
+        {
+            while (bigRat.Hp > 0 && bandit.Hp > 0)
+            {
+                PrintPlayerStats(bigRat, bandit);
+
+                Program.WarriorMenu();
+                if (bigRat.Hp > 0)
+                {
+                    Console.WriteLine(bigRat.BigRatTurn(bigRat.EnemyChoice(), bandit));
+                    bandit.Dead();
+                }
             }
         }
     }

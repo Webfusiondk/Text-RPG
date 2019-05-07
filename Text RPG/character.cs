@@ -6,6 +6,8 @@ using System.Threading.Tasks;
 
 namespace Text_RPG
 {
+    //Main char that all heros and enemys get there main stats from
+    //There are some methods here to like dead and print stats
     class Character
     {
         int playerlevel;
@@ -83,6 +85,7 @@ namespace Text_RPG
             "Hp: " + Hp + "\n" +
             "Attack: " + Attack + "\n";
         }
+
         public void LevelUp()
         {
             Console.WriteLine("Level Up!" + "\n" + "Attack +5" + "\n" + "Hp +10");
@@ -91,6 +94,7 @@ namespace Text_RPG
             hp += 10;
             playerlevel += 1;
         }
+
 
         public void NormalAttack(Character target)
         {

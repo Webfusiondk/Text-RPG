@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace Text_RPG
 {
+    //All Enemys and there attacks
     class Enemy : Character
     {
         public int numOfAttack;
@@ -187,6 +188,42 @@ namespace Text_RPG
             {
                 RatArmy(target);
                 return "RatArmy ATTACK!";
+            }
+            return null;
+        }
+    }
+    class TownGuard : Enemy
+    {
+        public TownGuard(string name, int playerlevel, int hp, int attack) 
+            : base(name, playerlevel, hp, attack)
+        {
+            numOfAttack = 1;
+        }
+
+        public string TownGuardTurn(int choice, Character target)
+        {
+            if (choice == 1)
+            {
+                NormalAttack(target);
+                return "Slash!";
+            }
+            return null;
+        }
+    }
+    class CastelGuard : Enemy
+    {
+        public CastelGuard(string name, int playerlevel, int hp, int attack)
+            : base(name, playerlevel, hp, attack)
+        {
+            numOfAttack = 1;
+        }
+
+        public string CastelGuardTurn(int choice, Character target)
+        {
+            if (choice == 1)
+            {
+                NormalAttack(target);
+                return "Slash!";
             }
             return null;
         }
