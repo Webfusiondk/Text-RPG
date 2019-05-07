@@ -158,8 +158,8 @@ namespace Text_RPG
 
         public string RatMedic(RatKing target)
         {
-            target.Hp += 20;
-            return "+ 20HP";
+            target.Hp += 100;
+            return "+ 100HP";
         }
 
         public string RatArmy(Character target)
@@ -183,7 +183,7 @@ namespace Text_RPG
             else if (choice == 3)
             {
                 RatMedic(Program.RatKing);
-                return "+ 20HP to RatKing";
+                return "+ 100HP to RatKing";
             }
             else if (choice == 4)
             {
