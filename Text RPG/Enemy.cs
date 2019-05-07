@@ -158,7 +158,7 @@ namespace Text_RPG
 
         public string RatMedic(RatKing target)
         {
-            target.Hp += Hp + 20;
+            target.Hp += 20;
             return "+ 20HP";
         }
 
