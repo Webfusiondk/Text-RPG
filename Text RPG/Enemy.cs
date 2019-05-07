@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace Text_RPG
 {
+
     //All Enemys and there attacks
     class Enemy : Character
     {

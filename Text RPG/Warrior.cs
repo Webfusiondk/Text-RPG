@@ -67,5 +67,6 @@ namespace Text_RPG
         {
             target.Hp -= Attack + 30;
         }
+
     }
 }

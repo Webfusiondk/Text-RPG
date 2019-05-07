@@ -10,6 +10,7 @@ namespace Text_RPG
     //There are some methods here to like dead and print stats
     class Character
     {
+
         int playerlevel;
         string name;
         int hp;
